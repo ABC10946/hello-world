@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu:18.04
+    steps:
+      - checkout
+      - run: apt update && apt install -y gcc
+      - run: mkdir -p build && cd build
+      - run: gcc -o main main.c -std=c11
+      - run: ./main
